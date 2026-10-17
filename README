@@ -1,0 +1,38 @@
+# Library Management System: Linked Lists and Dynamic Memory (C)
+
+Tek yönlü bağlı listeler (Singly Linked Lists) kullanılarak kitap, kullanıcı ve ödünç alma işlemlerinin dinamik bellek yönetimiyle gerçekleştirilmesi.
+Veri Yapıları ve Algoritmalar dersi kapsamında hazırlanmıştır.
+
+## İçerik
+
+| Fonksiyon / Yapı | Konu |
+|------------------|------|
+| `Book`, `User`, `Borrow` | Bağlı liste düğüm (`struct`) tanımlamaları ve işaretçi (`next`) bağlantıları |
+| `addBook` | `malloc` ile dinamik bellek tahsisi yaparak bağlı liste başına yeni kitap ekleme |
+| `addUser` | Sisteme yeni kullanıcı kaydı oluşturma ve ödünç sayacını (`borrowedCount`) sıfırlama |
+| `borrowBook` | Kitap uygunluk kontrolü (`available`), ödünç düğümü oluşturma ve durum güncelleme |
+| `returnBook` | İade edilen kitabın kaydını bağlı listeden çıkarma, `free()` ile belleği temizleme |
+| `viewBooks` / `viewUsers` | Bağlı listeler üzerinde gezinerek (traversal) mevcut kitap ve kullanıcı durumlarını listeleme |
+| `mostActiveUser` | Liste taraması ile en çok kitap ödünç alan kullanıcıyı tespit etme |
+
+## Nasıl Çalıştırılır?
+
+```bash
+gcc library-system.c -o library
+./library
+
+## Kullanılan Kavramlar
+Tek yönlü bağlı listeler (Singly Linked Lists) ve işaretçiler (Pointers)
+
+Dinamik bellek yönetimi (malloc ile tahsis, free ile bellek iadesi)
+
+Yapılar (typedef struct) ile ilişkisel veri modelleme
+
+Bağlı liste üzerinde arama, başa ekleme (head insertion) ve düğüm silme algoritmaları
+
+##Bilinen Eksikler
+Veriler çalışma zamanında (RAM üzerinde) tutulmaktadır; kalıcı depolama (dosya okuma/yazma - File I/O) henüz eklenmemiştir, program kapandığında veriler sıfırlanır.
+
+Test senaryoları main() fonksiyonu içerisinde sabit (hardcoded) olarak çalıştırılmaktadır; kullanıcıdan scanf ile girdi alan interaktif bir konsol menüsü bulunmamaktadır.
+
+addBook ve addUser fonksiyonlarında benzersiz ID (unique ID) kontrolü yapılmamaktadır.
